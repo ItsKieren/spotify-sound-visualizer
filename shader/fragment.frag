@@ -7,6 +7,8 @@ uniform float uFreq;       // Frequency of the sound
 uniform float uAmp;        // Amplitude (volume)
 uniform float uHue;        // Hue for color
 
+varying float vHue;        // Passed hue from the vertex shader
+
 void main() {
   // Add to get dynamic color based on the passed frequency and amplitude
   float r = abs(sin(uTime * 0.1 + uFreq * 0.5)) * uAmp;  // Red channel

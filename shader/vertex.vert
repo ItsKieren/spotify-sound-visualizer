@@ -162,15 +162,6 @@ float pnoise(vec3 P, vec3 rep)
 }
 
 void main() {
-    // vec4 newPosition = vec4(aPosition, 1.0);
-
-    // float frequency = uFreq;
-    // float amplitude = uAmp;
-
-    // float displacement = sin(newPosition.x * frequency + uTime * 0.1);
-    // newPosition.x += displacement * aNormal.x * amplitude;
-    //newPosition.y += displacement * aNormal.y * amplitude * 0.5;
-
     float displacement = uAmp * pnoise(aNormal + uTime * 0.05, vec3(0.0)) - uFreq * 0.00005;
 
     vec4 newPosition = vec4(aPosition + displacement * aNormal, 1.0);
