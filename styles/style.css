@@ -1,0 +1,135 @@
+html, body {                                      /* Reset margin and padding for the entire page           */
+    
+    margin: 0;                                    /* Removes default margin                                  */
+    padding: 0;                                   /* Removes default padding                                 */
+    height: 100%;                                 /* Ensures body takes the full height of the viewport      */
+    display: flex;                                /* Centers the content inside the viewport                 */
+    justify-content: center;                      /* Horizontally centers items                              */
+    align-items: center;                          /* Vertically centers items                                */
+    background-color: #222222;                  /* Sets a dark background for contrast                     */
+    color: #FFFFFF;                             /* Makes text white for readability on a dark background   */
+    font-family: Arial, sans-serif;               /* Uses a clean, readable font                             */
+  }
+
+canvas {                                          /* Make the canvas fill the entire screen                  */
+    display: block;                               /* Removes inline display issues                           */
+    position: absolute;                           /* Allows the canvas to be positioned freely               */
+    top: 0;                                       /* Aligns to the top of the viewport                       */
+    left: 0;                                      /* Aligns to the left of the viewport                      */
+    width: 100%;                                  /* Stretches the canvas to the full width of the viewport  */
+    height: 100%;                                 /* Stretches the canvas to the full height of the viewport */
+  }
+
+#ui-container {                                   /* Style for the UI container holding buttons and sliders  */
+    position: absolute;                           /* Allows for precise positioning on the screen            */
+    top: 10px;                                    /* Positions the container 10px from the top               */
+    left: 10px;                                   /* Positions the container 10px from the left              */
+    z-index: 10;                                  /* Ensures the container appears above the canvas          */
+    padding: 15px;                                           /* Adds padding inside the container            */
+    background-color: rgba(0, 0, 0, 0.6);                  /* Semi-transparent black background            */
+    border-radius: 8px;                                      /* Rounds the container's corners               */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);           /* Adds a subtle shadow for depth               */
+    display: flex;                                           /* Enables flexbox for layout                   */
+    flex-direction: column;                                  /* Stacks items vertically                      */
+    gap: 15px;                                               /* Adds 15px space between child elements       */
+  }
+
+button {                                          /* Style for buttons (Upload Audio, Play/Pause, etc.)      */
+    padding: 10px 20px;                                      /* Adds padding inside the button               */
+    background-color: transparent;                           /* Transparent background for a clean look      */
+    color: #FFFFFF;                                        /* White text for visibility                    */
+    border: 2px solid #FFFFFF;                             /* Adds a white border                          */
+    border-radius: 5px;                                      /* Slightly rounds the corners                  */
+    font-size: 16px;                                         /* Sets the text size                           */
+    cursor: pointer;                                         /* Changes the cursor to a pointer when hovered */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects          */
+  }
+
+button:hover {                                               /* Hover effect for buttons                     */
+    background-color: #ffffff;                             /* Changes the background to white              */
+    color: #222222;                                        /* Changes the text to black                    */
+  }
+
+input[type="range"] {                              /* Style for sliders                                      */
+    appearance: none;                              /* Removes default slider styling for all browsers        */
+    -webkit-appearance: none;                      /* Removes default slider styling in Webkit browsers      */
+    width: 100%;                                   /* Makes the slider full width                            */
+    height: 8px;                                   /* Sets slider track height                               */
+    background: #444444;                         /* Dark gray background for the slider track              */
+    border-radius: 5px;                            /* Rounds the slider track corners                        */
+    outline: none;                                 /* Removes default focus outline                          */
+    opacity: 0.7;                                  /* Makes the slider slightly transparent                  */
+    transition: opacity 0.2s;                      /* Smooth transition for opacity changes                  */
+  }
+
+input[type="range"]:hover {                        /* Hover effect for sliders                               */
+    opacity: 1;                                    /* Makes the slider fully opaque                          */
+  }
+  
+input[type="range"]::-webkit-slider-thumb {        /* Styling the slider thumb (the handle)                  */
+    -webkit-appearance: none;                      /* Removes default thumb styling in Webkit browsers       */
+    appearance: none;                              /* Removes default thumb styling in all browsers          */
+    width: 20px;                                   /* Sets thumb width                                       */
+    height: 20px;                                  /* Sets thumb height                                      */
+    background: #ffffff;                         /* Makes the thumb white                                  */
+    border-radius: 50%;                            /* Rounds the thumb into a circle                         */
+    cursor: pointer;                               /* Changes the cursor to a pointer when hovered           */
+  }
+
+input[type="range"]::-moz-range-thumb {            /* Styling the slider thumb for Firefox                   */
+    width: 20px;                                   /* Sets thumb width                                       */
+    height: 20px;                                  /* Sets thumb height                                      */
+    background: #ffffff;                         /* Makes the thumb white                                  */
+    border-radius: 50%;                            /* Rounds the thumb into a circle                         */
+    cursor: pointer;                               /* Changes the cursor to a pointer when hovered           */
+  }
+  
+input[type="file"] {                               /* Hide the default file input (only use custom button)   */
+    display: none;                                 /* Hides the default file input element                   */
+  }
+
+button.custom-upload {                             /* Style for custom file upload button                    */
+    padding: 10px 20px;                            /* Adds padding inside the button                         */
+    background-color: transparent;                 /* Transparent background for a clean look                */
+    color: #FFFFFF;                              /* White text for visibility                              */
+    border: 2px solid #FFFFFF;                   /* Adds a white border                                    */
+    border-radius: 5px;                            /* Slightly rounds the corners                            */
+    font-size: 16px;                               /* Sets the text size                                     */
+    cursor: pointer;                               /* Changes the cursor to a pointer when hovered           */
+  }
+
+button.custom-upload:hover {                       /* Hover effect for custom file upload button             */
+    background-color: #ffffff;                   /* Changes the background to white                        */
+    color: #222222;                              /* Changes the text to black                              */
+  }
+  
+a {                                                /* Additional style for the GitHub link and icon          */
+    display: inline-block;                         /* Makes the link block-level for better alignment        */
+    margin-top: 10px;                              /* Adds space above the link                              */
+    color: #FFFFFF;                              /* White text for visibility                              */
+    text-decoration: none;                         /* Removes default underline from the link                */
+  }
+  
+a:hover {                                          /* Hover effect for GitHub link                           */
+    text-decoration: underline;                    /* Adds underline when hovered                            */
+  }
+  
+a img {                                            /* Style for the GitHub image icon                        */
+    vertical-align: middle;                        /* Aligns the image vertically with text                  */
+  }
+  
+@media (max-width: 600px) {                        /* Media query for responsive design on smaller screens   */
+    #ui-container {
+      top: auto;                                   /* Removes top positioning                                */
+      bottom: 10px;                                /* Positions container 10px from the bottom               */
+      left: 10px;                                  /* Maintains left position                                */
+      right: 10px;                                 /* Adds right position for responsiveness                 */
+      flex-direction: row;                         /* Stacks items horizontally                              */
+      gap: 10px;                                   /* Reduces gap between items                              */
+      padding: 10px;                               /* Reduces padding for compact layout                     */
+    }
+  
+button, input[type="range"] {
+    font-size: 14px;                               /* Reduces font size for smaller screens                  */
+    }
+}

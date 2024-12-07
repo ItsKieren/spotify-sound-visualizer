@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang = "en" >
+
+<head>
+    
+    <meta charset="utf-8">
+    
+    <!-- Specify compatibility with Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    
+    <!-- Set the viewport settings to ensure proper display on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+    <title>Sound Viz</title>
+
+    <!-- Link to p5.js library from a CDN for easy access to the library -->
+    <!-- p5.js is used for creative coding with HTML5 canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>  
+
+    <!-- Link to p5.sound.js library from a CDN to handle audio features like playback, visualization, etc. -->
+    <!-- p5.sound is an add-on library to handle sound-related tasks -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js-sound/1.0.0/p5.sound.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/cutie.png">
+    
+    <!-- Script to handle Spotify login -->
+    <script src="libraries/spotify-auth.js" defer></script>
+    
+</head>
+
+<body>
+
+    <!-- Buttons for user interactions, allowing playback control, theme change, shape toggle, Spotify login, and file upload -->
+ 
+    <button id="playPauseBtn">Play/Pause</button>     
+    <button id="colorSchemeBtn">Toggle Color Scheme</button>   
+    <button id="shapeBtn">Toggle Shape</button>
+    <button id="spotifyLoginBtn">Login with Spotify</button>
+    <button id="uploadBtn">Upload Audio</button>
+
+    <!-- Hidden file input that allows the user to upload audio files -->
+    <!-- Triggered by the "Upload Audio" button -->
+    <input type="file" id="audioUpload" accept="audio/mp3" style="display:none;">
+
+    <!-- JavaScript to handle button functionality (using DOM manipulation to add event listeners) -->
+    <script>
+            
+        document.getElementById('playPauseBtn').addEventListener('click', togglePlayback);  
+        document.getElementById('colorSchemeBtn').addEventListener('click', toggleColorScheme);
+        document.getElementById('shapeBtn').addEventListener('click', toggleShape);                
+        document.getElementById('spotifyLoginBtn').addEventListener('click', loginWithSpotify);         
+        document.getElementById('uploadBtn').addEventListener('click', () => document.getElementById('audioUpload').click());
+            
+    </script>
+
+    <!-- Ensure that the DOM elements are loaded before running the p5.js sketch -->
+    <script src="js/sketch.js" defer></script>
+
+</body>
+
+</html>
+
