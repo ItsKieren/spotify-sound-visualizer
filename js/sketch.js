@@ -28,12 +28,6 @@ function setup() {
   img.size(40, 40); 
   a.position(10, 210);
 
-  // Create file input for audio upload
-  let audioUpload = createFileInput(handleFile);
-  audioUpload.attribute("accept", "audio/*");
-  audioUpload.position(10, 10);
-  audioUpload.style("opacity", "0");
-
   // Add an upload button for audio
   let customButton = createButton("Upload Audio");
   styleButton(customButton, 10, 10);
@@ -57,7 +51,11 @@ function setup() {
   fft = new p5.FFT();
 
   // Trigger the custom button click event
-  customButton.mousePressed(() => audioUpload.elt.click());
+  customButton.mousePressed(() => {
+    let audioUpload = createFileInput(handleFile);
+    audioUpload.attribute("accept", "audio/*");
+    audioUpload.elt.click();
+  });
 
   // Add the hue slider for controlling the hue value
   hueSlider = createSlider(0, 255, 128);
